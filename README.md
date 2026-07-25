@@ -1,116 +1,94 @@
-# World Cup 2026 Prediction Project
+# Football World Cup 2026 Predictions
 
-## Subtitle
+An interactive web application that predicts match outcomes and simulates the entire 2026 Football World Cup using statistical modeling and machine learning.
 
-A football analytics project that predicts World Cup 2026 team probabilities using Poisson models and Monte Carlo simulation.
+## 🌟 Features
 
-PS: You can re-use the content of this repo make sure to credit "Anas Riad" and give me a shout on LinkedIn (https://www.linkedin.com/in/riadanas/)
+- **Match Prediction**: Predict the outcome (Home Win, Draw, Away Win) and expected goals (xG) for any two teams facing off.
+- **Tournament Simulation**: Run full Monte Carlo simulations of the 2026 World Cup, starting from the group stages all the way to the final.
+- **Team Statistics**: View current Elo ratings, FIFA rankings, ranking changes, and recent form scores for participating nations.
+- **Data-Driven Approach**: Utilizes historical match data, head-to-head records, Elo ratings, and FIFA rankings to calculate probabilities.
 
-## Purpose
+## 💻 Tech Stack
 
-The goal of this project is to estimate each team’s chance of reaching different stages of the 2026 FIFA World Cup, from the group stage to winning the tournament.
+### Frontend
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS v4, Framer Motion for animations
+- **Icons & Charts**: Lucide React, React Icons, Recharts
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
 
-The project also includes an interactive Streamlit app to explore predictions, run one live tournament simulation, and compare match probabilities between teams.
+### Backend & Machine Learning
+- **Framework**: Flask (Python 3.12+)
+- **Data Processing**: Pandas, NumPy
+- **Modeling**: Scikit-Learn, SciPy, Statsmodels
+- **Alternative UI**: Streamlit (available for quick prototyping)
 
-## What was done
+## 📁 Project Structure
 
-* Collected and cleaned historical international football match data.
-* Prepared the 2026 World Cup fixtures, group-stage structure, knockout bracket, FIFA ranking data, and confederation data.
-* Built pre-match Elo ratings for teams.
-* Created match-level features such as:
-
-  * home Elo
-  * away Elo
-  * Elo difference
-  * neutral venue
-  * tournament weight
-  * home and away confederations
-* Trained two Poisson regression models:
-
-  * one model for home-team goals
-  * one model for away-team goals
-* Converted expected goals into win, draw, and loss probabilities.
-* Simulated:
-
-  * group-stage matches
-  * group tables
-  * best third-placed teams
-  * Round of 32 bracket
-  * knockout rounds
-  * full tournaments
-* Ran Monte Carlo simulations to estimate stage probabilities.
-
-## Project structure
-
-```text
-football_wc2026/
-│
-├── data/
-│   ├── interim/
-│   ├── processed/
-│   ├── raw/
-│   └── reference/
-│
-├── models/
-│   ├── poisson_home.pkl
-│   ├── poisson_away.pkl
-│   └── feature_columns.pkl
-│
-├── notebooks/
-│   ├── 0-data_fetch.ipynb
-│   ├── 1-data_cleaning.ipynb
-│   ├── 2-feature_engineering_ELO.ipynb
-│   ├── 3-feature_engineering_match_metadata.ipynb
-│   ├── 4-model_training.ipynb
-│   └── 5-tournament_simulation.ipynb
-│
-├── src/
-│   ├── data_loader.py
-│   ├── prediction.py
-│   ├── group_stage.py
-│   ├── qualification.py
-│   ├── bracket.py
-│   ├── knockout.py
-│   ├── tournament.py
-│   └── styling.py
-│
-├── simulation_app.py
-├── pyproject.toml
-├── uv.lock
-└── README.md
+```
+football_WorldCup_2026_predictions/
+├── client/                 # React frontend application
+├── data/                   # Historical match data and datasets
+├── models/                 # Pre-trained ML models (if applicable)
+├── notebooks/              # Jupyter notebooks for data exploration
+├── server/                 # Flask backend API
+│   ├── app.py              # Main Flask application
+│   └── requirements.txt    # Backend dependencies
+├── src/                    # Core Python prediction logic
+│   ├── data_loader.py      # Data ingestion and lookup building
+│   ├── prediction.py       # Match prediction logic
+│   └── tournament.py       # Tournament simulation logic
+├── pyproject.toml          # Python project metadata
+└── simulation_app.py       # Streamlit alternative interface
 ```
 
-## Tools used
+## 🚀 Getting Started
 
-* Python
-* pandas
-* NumPy
-* SciPy
-* statsmodels
-* Streamlit
-* uv
-* Jupyter notebooks
-* Matplotlib / pandas plotting
+### Prerequisites
+- Python 3.12 or higher
+- Node.js (v18+ recommended)
+- npm or yarn
 
-## Summary of results
+### Backend Setup
 
-The final output is a probability table showing each team’s chance of reaching:
+1. Navigate to the project root directory.
+2. Install the required Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   # or install from pyproject.toml
+   pip install .
+   ```
+3. Start the Flask server:
+   ```bash
+   python server/app.py
+   ```
+   The backend API will run on `http://127.0.0.1:5000/`.
 
-* Round of 32
-* Round of 16
-* Quarter-finals
-* Semi-finals
-* Final
-* Winner
-
-The 1,000-run Monte Carlo simulation showed that the model strongly favored teams with the highest Elo ratings, especially Argentina and Spain. The final results were saved to:
-
-```text
-data/processed/wc2026_tournament_probabilities.csv
+*(Optional)* To run the Streamlit version:
+```bash
+streamlit run simulation_app.py
 ```
 
-The Streamlit app includes:
+### Frontend Setup
 
-* a precomputed probability dashboard
-* a live single-tournament simulation
-* a match explorer for team-vs-team predictions
+1. Navigate to the `client` directory:
+   ```bash
+   cd client
+   ```
+2. Install Node dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   The frontend will be available at `http://localhost:5173/` (or the port specified by Vite).
+
+## 📡 API Endpoints
+
+- `GET /api/teams`: Fetch all participating teams and their stats (Elo, FIFA rank, form).
+- `GET /api/probabilities`: Fetch base probabilities dataset.
+- `POST /api/predict`: Predict a match between `home_team` and `away_team`.
+- `POST /api/simulate`: Simulate the entire tournament.
