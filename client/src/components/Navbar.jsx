@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Trophy, Home, Activity, BarChart2, Menu, X, Moon, Sun } from 'lucide-react';
+import { Trophy, Home, Activity, BarChart2, Menu, X, Moon, Sun, User, Gauge } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/predictor', label: 'Match Predictor', icon: Activity },
   { path: '/simulator', label: 'Simulator', icon: Trophy },
-  { path: '/analytics', label: 'Analytics', icon: BarChart2 },
+  { path: '/analytics', label: 'Team Analytics', icon: BarChart2 },
+  { path: '/player-analytics', label: 'Player Analytics', icon: User },
+  { path: '/player-performance', label: 'Player Performance', icon: Gauge },
 ];
 
 export default function Navbar() {

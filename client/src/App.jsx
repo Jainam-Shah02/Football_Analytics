@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Predictor from './pages/Predictor';
 import Simulator from './pages/Simulator';
 import Analytics from './pages/Analytics';
+import PlayerAnalytics from './pages/PlayerAnalytics';
+import PlayerPerformance from './pages/PlayerPerformance';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -16,6 +18,8 @@ function AnimatedRoutes() {
         <Route path="/predictor" element={<Predictor />} />
         <Route path="/simulator" element={<Simulator />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/player-analytics" element={<PlayerAnalytics />} />
+        <Route path="/player-performance" element={<PlayerPerformance />} />
       </Routes>
     </AnimatePresence>
   );
@@ -26,7 +30,7 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen selection:bg-cyan-500/30">
         <Navbar />
-        <main className="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <main className="flex-grow pt-20 pb-12 px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto w-full">
           <AnimatedRoutes />
         </main>
         <Footer />
