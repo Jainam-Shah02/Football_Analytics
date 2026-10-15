@@ -1,5 +1,4 @@
 import { BarChart2 } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -14,16 +13,6 @@ export default function Footer() {
           </div>
           
           <div className="flex items-center gap-6">
-            <a 
-              href="https://github.com/Aditya-singh9082/world-cup" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors flex items-center gap-2 text-sm"
-            >
-              <FaGithub className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <span className="text-gray-700">|</span>
             <span className="text-gray-500 text-sm">v2.0.0</span>
           </div>
         </div>

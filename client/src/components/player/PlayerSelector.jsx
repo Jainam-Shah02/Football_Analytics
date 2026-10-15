@@ -11,7 +11,7 @@ export default function PlayerSelector({ selectedPlayerId, onSelectPlayer, defau
   const [filterData, setFilterData] = useState({
     teams: [],
     roles: ['FW', 'MF', 'DF', 'GK'],
-    competition: { name: 'FIFA World Cup', season: '2022' },
+    competition: { name: 'FIFA World Cup' },
     total_players: 680
   });
   const [isOpen, setIsOpen] = useState(false);
@@ -312,8 +312,8 @@ export default function PlayerSelector({ selectedPlayerId, onSelectPlayer, defau
           )}
         </div>
 
-        {/* 2. Competition Metadata (2 cols on desktop) */}
-        <div className="sm:col-span-1 md:col-span-2">
+        {/* 2. Competition Metadata (3 cols on desktop) */}
+        <div className="sm:col-span-1 md:col-span-3">
           <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">
             Competition
           </label>
@@ -322,17 +322,7 @@ export default function PlayerSelector({ selectedPlayerId, onSelectPlayer, defau
           </div>
         </div>
 
-        {/* 3. Season Metadata (1 col on desktop) */}
-        <div className="sm:col-span-1 md:col-span-1">
-          <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">
-            Season
-          </label>
-          <div className="w-full h-11 flex items-center justify-center px-2 bg-black/40 border border-white/10 rounded-md text-xs sm:text-sm text-gray-200 font-mono font-medium">
-            {filterData.competition?.season || '2022'}
-          </div>
-        </div>
-
-        {/* 4. Position Role Filter (2 cols on desktop) */}
+        {/* 3. Position Role Filter (2 cols on desktop) */}
         <div className="sm:col-span-1 md:col-span-2">
           <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">
             Role
@@ -350,8 +340,8 @@ export default function PlayerSelector({ selectedPlayerId, onSelectPlayer, defau
           </select>
         </div>
 
-        {/* 5. National Team Filter (3 cols on desktop) */}
-        <div className="sm:col-span-1 md:col-span-3">
+        {/* 4. National Team Filter (3 cols on desktop) */}
+        <div className="sm:col-span-2 md:col-span-3">
           <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">
             National Team
           </label>

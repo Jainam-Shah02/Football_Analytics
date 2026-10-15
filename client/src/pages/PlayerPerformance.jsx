@@ -5,7 +5,6 @@ import {
   RefreshCw,
   CheckCircle2,
   AlertTriangle,
-  Info,
   Calendar,
   User,
   Activity,
@@ -345,14 +344,6 @@ export default function PlayerPerformance() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Model Disclaimer */}
-            <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-              <Info className="w-4 h-4 text-cyan-400 shrink-0" />
-              <span>
-                <strong className="text-gray-300">Analytical Model Notice:</strong> {performance.model_disclaimer}
-              </span>
             </div>
           </div>
 

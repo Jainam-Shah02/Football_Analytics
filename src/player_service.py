@@ -434,9 +434,7 @@ class PlayerService:
         return {
             "competition": {
                 "id": 43,
-                "name": "FIFA World Cup",
-                "season": "2022",
-                "season_id": 106
+                "name": "FIFA World Cup"
             },
             "roles": roles,
             "positions": positions,

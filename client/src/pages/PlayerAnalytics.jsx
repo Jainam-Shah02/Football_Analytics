@@ -213,7 +213,7 @@ export default function PlayerAnalytics() {
           Player Analytics
         </h1>
         <p className="text-sm sm:text-base text-gray-400 mt-1.5 max-w-3xl">
-          Detailed match and season statistics compiled directly from official StatsBomb event data for the FIFA World Cup 2022.
+          Detailed match and season statistics compiled directly from official StatsBomb event data for the FIFA World Cup.
         </p>
       </div>
 
@@ -393,7 +393,7 @@ export default function PlayerAnalytics() {
               </div>
 
               <div className="mt-3 pt-2.5 border-t border-white/10 text-xs text-gray-400 font-sans">
-                Source: StatsBomb Open Data (2022 FIFA World Cup)
+                Source: StatsBomb Open Data (FIFA World Cup)
               </div>
             </div>
           </section>
